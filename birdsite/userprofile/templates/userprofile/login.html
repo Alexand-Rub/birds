@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="login">
+    <h1 class="title login-title">Авторизация</h1>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        {% if error %}
+        <p class="login-error" style="color: red">
+            {{ error }}
+        </p>
+        {% endif %}
+        <p class="login-p">
+            <label for="username"> Логин:</label>
+            <input class="field" type="text" id="username" name="username" required>
+        </p>
+        <p class="login-p">
+            <label for="password">Пароль:</label>
+            <input class="field" type="password" id="password" name="password" required>
+        </p>
+        <button type="submit" class="btn_bold login-btn">Войти</button>
+    </form>
+    <a href="{% url 'userprofile:register' %}">Регистрация</a>
+</div>
+{% endblock %}

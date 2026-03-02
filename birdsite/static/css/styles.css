@@ -1,0 +1,537 @@
+.title {
+    margin-top: 0;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+/* главная страница */
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.definition {
+    padding-top: 200px;
+    padding-bottom: 220px;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+}
+
+.main-title {
+    font-size: 34px;
+    font-weight: 600;
+}
+
+.main_link {
+    padding: 10px 55px;
+    color: white;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #367FB5 0%, #9BD5FF 100%);
+}
+
+.main_discussion {
+    padding-top: 160px;
+    padding-bottom: 160px;
+    background-image: url(../img/Group\ 1.png), url(../img/Group\ 2.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left center, right center;
+}
+
+.main_discussion-p {
+    margin-bottom: 30px;
+    width: 630px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.main_guide {
+    padding-top: 80px;
+    padding-bottom: 200px;
+}
+
+.main_guide-p {
+    margin-bottom: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-width: 1210px;
+    text-align: center;
+    font-size: 24px;
+}
+
+
+/* Окно входа */
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 100px auto 0 auto;
+    padding: 40px;
+    width: 638px;
+    border: 4px solid #B5D6EF;
+    border-radius: 40px;
+}
+
+.login-title {
+    margin-bottom: 33px;
+}
+
+.login-error {
+    margin-bottom: 33px;
+    font-size: 20px;
+    color: red;
+}
+
+.login-form {
+    width: 480px;
+    text-align: center;
+}
+
+.login p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.login p label {
+    margin-right: auto;
+    font-size: 30px;
+}
+
+.login p input {
+    width: 300px;
+}
+
+.login-btn {
+    margin-top: 23px;
+    margin-bottom: 10px;
+}
+
+.register-btn {
+    margin-top: 23px;
+}
+
+/* Профиль */
+
+.user-block {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+.user_logo {
+    margin-right: 50px;
+    width: 400px;
+    height: 400px;
+    border-radius: 40px;
+    background-size: cover;
+    background-color: #E4F3FF;
+}
+
+.bio-item {
+    font-size: 33px;
+    margin-bottom: 20px;
+}
+
+.user-links:not(:last-child) {
+    margin-right: 20px;
+}
+
+/* Редактирование профиля */
+
+.profile_update p {
+    font-size: 33px;
+    width: 1000px;
+    margin-bottom: 20px;
+}
+
+.profile_update label {
+    display: inline-block;
+    width: 200px;
+}
+
+.profile_update-inp {
+    width: 350px;
+}
+
+/* список птитек */
+
+.birds_search {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 800px;
+    font-size: 20px;
+    border: 4px solid var(--blue-one-color);
+    border-radius: 100px;
+}
+
+.birds_search::placeholder {
+    color: var(--blue-one-color);
+}
+
+.birds {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.birds-link {
+    display: flex;
+    padding: 18px;
+    border: 4px solid rgba(181, 214, 239, 1);
+    border-radius: 20px;
+}
+
+.birds-link:hover {
+    background-color: rgba(228, 243, 255, 1);
+}
+
+.birds-img {
+    flex: none;
+    margin-right: 20px;
+    width: 143px;
+    height: 143px;
+    border-radius: 20px;
+    background-size: cover;
+}
+
+.birds-description {
+    word-break: break-all;
+}
+
+.birds-title {
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.bird-description {
+    font-size: 16px;
+}
+
+/* птитька */
+.favourites_block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.favourites_true,
+.favourites_false {
+    display: block;
+    width: 45px;
+    height: 45px;
+    border: none;
+    background-color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.favourites_true {
+    background-image: url(../img/favourites_true.svg);
+}
+.favourites_false {
+    background-image: url(../img/favourites_false.png);
+}
+
+.bird-title {
+    font-size: 46px;
+    margin-bottom: 0;
+    margin-right: auto;
+}
+
+.bird-title_lat {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.bird-block {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.bird-photos {
+    margin-right: 90px;
+    margin-bottom: -20px;
+}
+
+.bird-img {
+    margin-bottom: 15px;
+    width: 340px;
+    height: 340px;
+    border-radius: 40px;
+    background-size: cover;
+    background-color: rgba(228, 243, 255, 1);
+}
+
+.birds-ing_sub {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.bird-info {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.bird-chapter {
+    font-weight: 600;
+}
+
+.bird-more {
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 1.5;
+    word-break: break-all;
+}
+
+.bird-audio {
+    width: 100%;
+}
+
+/* Создание птитьки */
+
+.create_bird-block {
+    display: grid;
+    margin-bottom: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 40px;
+    grid-column-gap: 20px;
+}
+
+.create_bird-lable {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 24px;
+}
+
+.create_bird-field,
+.create_bird-textarea {
+    width: 100%;
+}
+
+.create_bird-textarea {
+    margin-bottom: 40px;
+    height: 140px;
+    resize: none;
+}
+
+.create_bird-btns {
+    margin-bottom: 60px;
+}
+
+.create_bird-btn:not(:last-child) {
+    margin-right: 20px;
+}
+
+.cancel {
+    margin-right: 20px;
+}
+
+/* обсуждения */
+
+.discussions-header {
+    display: flex;
+    align-items: center;
+}
+
+.discussions_form {
+    margin-right: auto;
+}
+
+.discussions_form label {
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+
+.discussions_form input::placeholder {
+    color: var(--blue-one-color);
+}
+
+.discussions_form input {
+    margin-right: 20px;
+    padding: 5px 15px;
+    width: 320px;
+    font-size: 20px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #367FB5 0%, #F3FAFF 100%);
+}
+
+.discussions {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 60px;
+    background-color: var(--pale-blue-color);
+}
+
+.discussions-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 4px solid var(--blue-one-color);
+    border-radius: 40px;
+    background-color: white;
+}
+
+.discussions-logo {
+    margin-right: 12px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-size: cover;
+    background-color: var(--blue-one-color);
+}
+
+.discussions-user {
+    margin-right: 60px;
+    font-size: 20px;
+    min-width: 200px;
+}
+
+.discussions-title {
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.discussions-date {
+    font-size: 20px;
+}
+
+/* обсуждение*/
+
+.discussion_title_block {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.discussion_title-title {
+    margin-right: 16px;
+    font-size: 36px;
+}
+
+.discussion_user {
+    flex: none;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    padding: 6px 16px 6px 6px;
+    border: 4px solid var(--blue-one-color);
+    border-radius: 100px;
+    background-color: var(--pale-blue-color);
+}
+
+.discussion_user-title {
+    margin-right: auto;
+}
+
+.discussion_user-logo {
+    margin-right: 13px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background-size: cover;
+    background-color: var(--blue-one-color);
+}
+
+.discussion-block {
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 4px solid var(--blue-one-color);
+    border-radius: 20px;
+    background-color: var(--pale-blue-color);
+}
+
+.discussion-title,
+.discussion-content {
+    font-size: 20px;
+}
+
+.discussion-content {
+    margin-bottom: 20px;
+}
+
+.discussion-img {
+    max-width: 400px;
+    max-height: 400px;
+    border-radius: 40px;
+}
+
+.comments-title {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+.comments-field {
+    width: 100%;
+    margin-bottom: 20px;
+    resize: none;
+}
+
+.comments-send {
+    margin-bottom: 20px;
+}
+
+.comments-item:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.comments-item:last-child {
+    margin-bottom: 100px;
+}
+
+.comments-content {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 30px 10px 10px;
+    border: 4px solid var(--blue-one-color);
+    border-radius: 50px;
+}
+
+.comments-text {
+    font-size: 20px;
+}
+
+.message_remove {
+    flex: none;
+    margin-left: 20px;
+    width: 36px;
+    height: 36px;
+    background-image: url(../img/trash.svg);
+}
+
+/* Новое обсуждение */
+
+.discussions_add_form p {
+    margin-bottom: 40px;
+}
+
+.discussions_add_form label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 24px;
+}
+
+.discussions_add_title {
+    width: 50%;
+}
+
+.discussions_add_form textarea {
+    width: 100%;
+    resize: none;
+}
+
+.discussions_add_buttons {
+    display: flex;
+}
+
+.discussions_add_button {
+    margin-right: 20px;
+    margin-left: auto;
+}

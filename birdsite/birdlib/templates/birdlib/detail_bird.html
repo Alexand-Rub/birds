@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+    <div class='favourites_block'>
+        <h1 class="bird-title">{{bird.name}} {% if bird.lat_name %} <span class="bird-title_lat">лат. {{bird.lat_name}}</span> {% endif %}</h1>
+        <form method="post">
+        {% csrf_token %}
+            {% if favourites %}
+                <button type="submit" class="favourites_true"></button>
+            {% else %}
+                <button type="submit" class="favourites_false"></button>
+            {% endif %}
+        </form>
+    </div>
+    <div class="bird-block">
+        <div class="bird-photos">
+            <div class="bird-img" {% if bird.logo_men %} style="background-image: url(../../..{{ bird.logo_men.url}});" {% endif %}></div>
+            <p class="birds-ing_sub">Самец</p>
+            <div class="bird-img" {% if bird.logo_woman %} style="background-image: url(../../..{{ bird.logo_woman.url}});" {% endif %}></div>
+            <p class="birds-ing_sub">Самка</p>
+        </div>
+        <div class="bird-bio">
+            <p class="bird-info"><span class="bird-chapter">Отряд:</span> {{bird.squad}}</p>
+            <p class="bird-info"><span class="bird-chapter">Семейство:</span> {{bird.family}}</p>
+            <p class="bird-info"><span class="bird-chapter">Род:</span> {{bird.genus}}</p>
+            <p class="bird-info"><span class="bird-chapter">Охранный статус:</span> {{bird.protection}}</p>
+            <p class="bird-info"><span class="bird-chapter">Место обитания:</span></p>
+            <p class="bird-more">{{bird.habitat}}</p>
+            <p class="bird-info"><span class="bird-chapter">Голос:</span></p>
+            <audio class="bird-audio" controls src="../../../media/songs/Ase4kA_-_The_night_is_gentle.mp3"></audio>
+        </div>
+    </div>
+    <p class="bird-info"><span class="bird-chapter">Описание</span></p>
+    <p class="bird-more">{{bird.description}}</p>
+    {% if group_exists %}
+        <a class="btn_delete" href="{% url 'birdlib:delete' pk=bird.pk %}">Удалить статью</a>
+    {% endif %}
+
+</div>
+{% endblock %}

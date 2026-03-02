@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+    <h1>Здесь вы можете найти нужную вам птицу по отряду, семейтву, роду или виду птицы. Просто введите название:</h1>
+    <form method="get">
+        <input class="birds_search" name="bird" placeholder="Поиск...">
+    </form>
+    {% if search %}
+    <h1>Рузельтаты по запросу: {{ search }}</h1>
+    {% endif %}
+    <div class="birds">
+        {% for bird in birds %}
+        <a class="birds-link" href="{% url 'birdlib:details' pk=bird.pk %}">
+            {% if bird.logo_men %}
+            <div class="birds-img" style="background-image: url(../../..{{ bird.logo_men.url}});"></div>
+            {% else %}
+            <div class="birds-img"></div>
+            {% endif %}
+            <div class=" birds-block">
+                <h2 class="birds-title">{{ bird.name }}</h2>
+                <p class="birds-description">{{ bird.description|truncatechars:'135' }}</p>
+            </div>
+            <div>
+            </div>
+
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

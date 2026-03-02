@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --pale-blue-color: #E4F3FF;
+    --blue-color: #367FB5;
+    --blue-one-color: #B5D6EF;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Manrope;
+    color: var(--blue-color);
+}
+
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+h1,
+h2 {
+    margin-top: 0;
+}
+
+ul,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    max-width: 1300px;
+}
+
+/* Кнопки */
+
+.btn,
+.btn_bold,
+.btn_light,
+.bnt_file span,
+.btn_delete {
+    display: inline-block;
+    font-size: 24px;
+    padding: 10px;
+    min-width: 300px;
+    cursor: pointer;
+    text-align: center;
+
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 40px;
+}
+
+.btn_bold {
+    color: white;
+    border-color: var(--blue-color);
+    background-color: var(--blue-color);
+}
+
+.btn_light,
+.bnt_file span {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: var(--blue-one-color);
+}
+
+.bnt_file {
+    position: relative;
+    display: inline-block;
+}
+
+.bnt_file span {
+    position: relative;
+}
+
+.bnt_file input[type=file] {
+    position: absolute;
+    display: block;
+    z-index: -1;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.btn_delete {
+    color: #FF9282;
+    border-color: #FF9282;
+}
+
+/* Поля */
+
+.field {
+    padding: 13px;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--pale-blue-color);
+}

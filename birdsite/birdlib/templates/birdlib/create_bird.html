@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+	<form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<div class="create_bird-block">
+			<div>
+				<label class="create_bird-lable" for="id_name">Название:</label>
+				<input class="field create_bird-field" type="text" name="name" maxlength="50" required="" id="id_name">
+			</div>
+			<div>
+				<label class="create_bird-lable" for="id_lat_name">Латинское название:</label>
+				<input class="field create_bird-field" type="text" name="lat_name" maxlength="50" id="id_lat_name">
+			</div>
+			<div>
+				<label class="create_bird-lable" for="id_squad">Отряд:</label>
+				<input class="field create_bird-field" type="text" name="squad" maxlength="50" id="id_squad">
+			</div>
+			<div>
+				<label class="create_bird-lable" for="id_family">Семейство:</label>
+				<input class="field create_bird-field" type="text" name="family" maxlength="50" id="id_family">
+			</div>
+			<div>
+				<label class="create_bird-lable" for="id_genus">Род:</label>
+				<input class="field create_bird-field" type="text" name="genus" maxlength="50" id="id_genus">
+			</div>
+			<div>
+				<label class="create_bird-lable" for="id_protection">Охранный статус:</label>
+				<input class="field create_bird-field" type="text" name="protection" maxlength="50" id="id_protection">
+			</div>
+		</div>
+		<label class="create_bird-lable" for="id_habitat">Место обитания:</label>
+		<textarea class="field create_bird-textarea" name="habitat" maxlength="1000" id="id_habitat"></textarea>
+
+
+		<label class="create_bird-lable" for="id_description">Описание:</label>
+		<textarea class="field create_bird-textarea" name="description" maxlength="1000" id="id_description"></textarea>
+		<div class="create_bird-btns">
+			<label for="id_audio" class="bnt_file create_bird-btn">
+				<input type="file" name="audio" accept="audio/*" id="id_audio">
+				<span>Загрузить аудио</span>
+			</label>
+
+			<label for="id_logo_men" class="bnt_file create_bird-btn">
+				<input type="file" name="logo_men" accept="image/*" id="id_logo_men">
+				<span>Добавить фото самца</span>
+			</label>
+
+			<label for="id_logo_woman" class="bnt_file create_bird-btn">
+				<input type="file" name="logo_woman" accept="image/*" id="id_logo_woman">
+				<span>Добавить фото самки</span>
+			</label>
+		</div>
+
+		<a class="btn_bold cancel" href="{% url 'userprofile:profile' %}">Отменить</a>
+		<button class="btn_bold" type="submit">Добавить</button>
+	</form>
+</div>
+{% endblock %}

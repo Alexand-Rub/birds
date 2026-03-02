@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="discussion_title_block">
+        <p class="discussion_title-title">Автор обсуждения:</p>
+        <div class="discussion_user discussion_user-title">
+            <div class="discussion_user-logo"
+                {% if discussion.user.profile.logo %}
+                style="background-image: url(../../..{{ discussion.user.profile.logo.url }});"
+                {% endif %}
+            >
+            </div>
+            <p class="discussion_user-name">
+                {{ discussion.user.profile.first_name }} {{ discussion.user.profile.last_name }}
+            </p>
+        </div>
+        {% if group_exists %}
+        <a class="btn_delete" href="{% url 'discussions:delete_discussion' pk=discussion.pk %}">Удалить обсуждение</a>
+        {% endif %}
+    </div>
+
+    <div class="discussion-block">
+        <h1 class="discussion-title">{{discussion.title}}</h1>
+        {% if discussion.content %}<p class="discussion-content">{{discussion.content}}</p>{% endif %}
+        {% if discussion.image %}<img class="discussion-img" src="{{ discussion.image.url }}" alt="" srcset="">{% endif %}
+    </div>
+
+    <p class="comments-title">Комментарии</p>
+    {% if login %}
+    <form method="post">
+        {% csrf_token %}
+        <textarea class="field comments-field" name="text" rows="10" id="id_text"
+            placeholder="Напишите что-нибудь..."></textarea>
+        <button class="btn_light comments-send" type="submit">Отправить</button>
+    </form>
+    {% endif %}
+        <ul>
+            {% for massage in massages %}
+            <li class="comments-item">
+                <div class="comments-content">
+                    <div class="discussion_user">
+                        <div class="discussion_user-logo"
+                            style="background-image: url(../../..{{ discussion.user.profile.logo.url }});">
+                        </div>
+                        <p class="discussion_user-name">
+                            {{ discussion.user.profile.first_name }} {{ discussion.user.profile.last_name }}
+                        </p>
+                    </div>
+                    <p class="comments-text">{{massage.text}}</p>
+                    {% if group_exists %}
+                    <a class="message_remove" href="{% url 'discussions:delete_massage' pk=massage.pk %}"></a>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="container">
+    <div class="user-block">
+        {% if user.profile.logo %}
+        <div class="user_logo" style="background-image: url(../../..{{ user.profile.logo.url }});"></div>
+        {% else %}
+        <div class="user_logo"></div>
+        {% endif %}
+
+        <div class="bio">
+            <p class="bio-item">
+                Имя: {{user.profile.first_name}}
+            </p>
+            <p class="bio-item">
+                Фамилия: {{user.profile.last_name}}
+            </p>
+            <p class="bio-item">
+                e-mail: {{user.profile.email}}
+            </p>
+            {% if request.user.pk == user.pk %}
+            <a class="btn btn_light" href="{% url 'userprofile:update' pk=user.profile.id %}">Редактировать</a>
+            {% endif %}
+        </div>
+    </div>
+    <div>
+        <a class="btn_light user-links" href="{% url 'birdlib:favourites' %}">Мое избранное</a>
+        <a class="btn_light user-links" href="{% url 'discussions:my_list' %}">Мои обсуждения</a>
+        {% if group_exists %}
+        <a class="btn_light user-links" href="{% url 'birdlib:create' %}">Добавить наблюдение</a>
+        {% endif %}
+        <a class="btn_bold user-links" href="{% url 'userprofile:logout' %}">Выйти</a>
+    </div>
+</div>
+
+{% endblock %}
