@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="discussions-header">
+        <form method="get" class="discussions_form">
+            <label for="discussions-search">Тема обсуждения:</label>
+            <input
+                    id="discussions-search"
+                    class="discussions_search"
+                    name="search"
+                    placeholder="Поиск..."
+                    {% if search != None %}
+                        value="{{search}}"
+                    {% endif %}
+            >
+
+            <label for="discussions-sort">Фильтр</label>
+            <select name="sort" id="discussions-sort" onchange="this.form.submit();">
+                {% if sort == "old" %}
+                    <option value="old">сначала старые</option>
+                    <option value="new">сначала новые</option>
+                {% else %}
+                    <option value="new">сначала новые</option>
+                    <option value="old">сначала старые</option>
+                {% endif %}
+            </select>
+        </form>
+        <a class="btn_light" href="{% url 'discussions:create'%}">Создать обсуждение</a>
+    </div>
+    <div class="discussions">
+        {% for discussion in discussions %}
+        <a class="discussions-item" href="{% url 'discussions:detail' pk=discussion.pk %}">
+            <div class="discussions-logo"
+                {% if discussion.user.profile.logo %}
+                style="background-image: url(../../..{{ discussion.user.profile.logo.url }});"
+                {% endif %}
+                 >
+            </div>
+            <p class="discussions-user">
+                {{ discussion.user.profile.first_name }} {{ discussion.user.profile.last_name }}
+            </p>
+            <p class="discussions-title">{{ discussion.title|truncatechars:'40' }}</p>
+            <p class="discussions-date">{{ discussion.date | date:"d.m.y" }}</p>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

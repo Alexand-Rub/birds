@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="login">
+    <h1 class="title login-title">Регистрация</h1>
+    <form method="post" class="login-form">
+        {% csrf_token %}
+        <p>
+            <label for="id_username">Логин:</label>
+            <input type="text" name="username" class="field" autofocus="" required="" id="id_username">
+        </p>
+        <p>
+            <label for="id_password1">Пароль:</label>
+            <input type="password" name="password1" class="field" required="" id="id_password1">
+        </p>
+        <p>
+            <label for="id_password2">Повторите:</label>
+            <input type="password" name="password2" class="field" required="" id="id_password2">
+        </p>
+        <button type="submit" value="Register" class="btn_bold register-btn">Зарегистрироваться</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+	<form class="profile_update" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<p>
+			<label for="id_first_name">Имя:</label>
+			<input type="text" name="first_name" value="{{ user.profile.first_name }}" class="field profile_update-inp "
+				maxlength="50" id="id_first_name">
+		</p>
+		<p>
+			<label for="id_last_name">Фамилия:</label>
+			<input type="text" name="last_name" value="{{ user.profile.last_name }}" class="field profile_update-inp"
+				maxlength="50" id="id_last_name">
+		</p>
+		<p>
+			<label for="id_email">e-mail:</label>
+			<input type="email" name="email" value="{{ user.profile.email }}" class="field profile_update-inp"
+				maxlength="254" id="id_email">
+		</p>
+		<p>
+			<label class="bnt_file" for="id_logo">
+				<input type="file" name="logo" class="profile_update-btn" accept="image/*" id="id_logo">
+				<span>Загрузите новое фото</span>
+			</label>
+		</p>
+		<button type="submit" class="btn_bold">Сохранить</button>
+
+	</form>
+</div>
+
+{% endblock %}

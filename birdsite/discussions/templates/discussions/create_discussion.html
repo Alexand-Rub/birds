@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+
+
+<form class="discussions_add_form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+        <label for="id_title">Название:</label>
+        <input  class="field discussions_add_title" type="text" name="title" maxlength="200" required="True" id="id_title">
+    </p>
+    <p>
+        <label for="id_content">Текст сообщения</label>
+        <textarea class="field" name="content" cols="40" rows="10" maxlength="1000" id="id_content"></textarea>
+    </p>
+    <p>
+        <!-- <label for="id_image">Image:</label>
+        <input type="file" name="image" accept="image/*" id="id_image"> -->
+        
+        <label for="id_image" class="bnt_file">
+            <input type="file" name="image" accept="image/*" id="id_image">
+            <span>Добавить фото</span>
+        </label>
+    </p>
+
+    <div class="discussions_add_buttons">
+        <button class="btn_bold discussions_add_button" type="submit">Добавить</button>
+        <a class="btn_bold" href="{% url 'discussions:list' %}">Отменить</a>
+    </div>
+</form>
+</div>
+{% endblock %}

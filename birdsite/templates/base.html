@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/common.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/header.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% block styles %}
+
+    {% endblock %}
+    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+    <script src="{% static 'js/btn-file.js' %}" defer></script>
+
+    <title>
+        {% block title %}
+        Птитьки
+        {% endblock %}
+    </title>
+
+</head>
+
+<body>
+    <header class="header container">
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'birdlib:list' %}">Справочник</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'discussions:list' %}">Обсуждения</a>
+                </li>
+            </ul>
+        </nav>
+
+        <a href="{% url 'userprofile:profile' %}" class="account_link"></a>
+    </header>
+    <main>
+        {% block main %}
+        <section class="main-block definition">
+            <h1 class="main-title">ОПРЕДЕЛИТЕЛЬ ПТИЦ</h1>
+            <a class="main_link" href="{% url 'birdlib:list' %}">Перейти</a>
+        </section>
+        <section class="main-block main_discussion">
+            <h1 class="main-title">ОБСУЖДЕНИЯ</h1>
+            <p class="main_discussion-p">Здесь вы можете задать интересующий Вас вопрос, а так же ответить на вопросы
+                других пользователей</p>
+            <a class="main_link" href="{% url 'discussions:list' %}">Перейти</a>
+        </section>
+        <section class="main-block main_guide">
+            <h1 class="main-title">СПРАВОЧНИК</h1>
+            <p class="main_guide-p">На нашем сайте представлен справочник птиц, которым вы можете воспрользоваться чтобы
+                подробно изучить
+                особенности интерисующих вас птиц, послушать их пение и узнать для себя что то новое! Очень простой
+                доступ к каждому описанию, просто введите название птицы, а наш сайт подберет для вас всю информацию.
+                Добавляйте птиц в избранное, делайте заметки, чтобы информация всегда была под рукой!</p>
+            <a class="main_link" href="{% url 'birdlib:list' %}">Перейти</a>
+        </section>
+
+
+
+
+
+        {% endblock %}
+
+    </main>
+</body>
+
+</html>
