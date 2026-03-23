@@ -17,6 +17,12 @@
     padding-bottom: 220px;
     background-image: url(../img/bg.png);
     background-size: cover;
+    text-align: center;
+}
+
+.main_discussion {
+    padding-left: 350px;
+    padding-right: 350px;
 }
 
 .main-title {
@@ -41,7 +47,7 @@
 
 .main_discussion-p {
     margin-bottom: 30px;
-    width: 630px;
+    max-width: 630px;
     text-align: center;
     font-size: 24px;
 }
@@ -79,8 +85,10 @@
 
 .login-error {
     margin-bottom: 33px;
-    font-size: 20px;
+    font-size: 16px;
     color: red;
+    text-align: center;
+    width: 100%;
 }
 
 .login-form {
@@ -111,6 +119,15 @@
 .register-btn {
     margin-top: 23px;
 }
+
+.error {
+    margin-bottom: 35px;
+}
+.error p {
+    display: block;
+}
+
+
 
 /* Профиль */
 
