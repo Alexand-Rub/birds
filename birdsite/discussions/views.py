@@ -91,7 +91,12 @@ class DetailDiscussionView(View):
         return redirect('discussions:detail', pk=pk)
 
 class DeleteDiscussionView(UserPassesTestMixin, DeleteView):
-    pass
+    model = Discussions
+    success_url = reverse_lazy("discussions:list")
+    template_name = 'discussions/delete.html'
+
+    def test_func(self):
+        return self.request.user.is_authenticated and self.request.user.groups.filter(name='Moderators').exists()
 
 class DeleteMessageView(UserPassesTestMixin, DeleteView):
     model = Message
