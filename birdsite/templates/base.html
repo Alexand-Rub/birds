@@ -17,7 +17,7 @@
 
     <title>
         {% block title %}
-        Птитьки
+        Птички
         {% endblock %}
     </title>
 
@@ -35,6 +35,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'discussions:list' %}">Обсуждения</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'observations:list' %}">Наблюдения</a>
                 </li>
             </ul>
         </nav>

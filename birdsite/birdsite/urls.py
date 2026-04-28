@@ -28,6 +28,7 @@ urlpatterns = [
     path('user/', include('userprofile.urls')),
     path('lib/', include('birdlib.urls')),
     path('discussions/', include('discussions.urls')),
+    path('observations/', include('observations.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:

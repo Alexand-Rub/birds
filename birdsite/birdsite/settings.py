@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'userprofile.apps.UserprofileConfig',
     'birdlib.apps.BirdlibConfig',
-    'discussions.apps.DiscussionsConfig'
+    'discussions.apps.DiscussionsConfig',
+    'observations.apps.ObservationsConfig',
 ]
 
 MIDDLEWARE = [
@@ -105,7 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
+
+DATE_FORMAT = 'd E Y'
 
 TIME_ZONE = 'UTC'
 

@@ -29,9 +29,9 @@
         <a class="btn_light user-links" href="{% url 'birdlib:favourites' %}">Мое избранное</a>
         <a class="btn_light user-links" href="{% url 'discussions:my_list' %}">Мои обсуждения</a>
         {% if group_exists %}
-        <a class="btn_light user-links" href="{% url 'birdlib:create' %}">Добавить наблюдение</a>
+        <a class="btn_light user-links" href="{% url 'observations:create' %}">Добавить наблюдение</a>
         {% endif %}
-        <a class="btn_bold user-links" href="{% url 'userprofile:logout' %}">Выйти</a>
+        <a class="btn_bold user-links" href="{% url 'userprofile:logout' %}" {% if group_exists %} style="margin-top: 20px" {% endif %}>Выйти</a>
     </div>
 </div>
 

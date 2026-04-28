@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+    <div class="observation_detail-top">
+        <p class="observation_detail-title">АВТОР:</p>
+        <div class="discussion_user observation_detail-user">
+            {% if observation.user.profile.logo %}
+                <div class="discussion_user-logo"
+                    style="background-image: url(../../..{{ observation.user.profile.logo.url }});">
+                </div>
+            {% endif%}
+            <p class="discussion_user-name">
+                {{ observation.user.profile.first_name }} {{ observation.user.profile.last_name }}
+            </p>
+        </div>
+    </div>
+    <div class="observation_detail-block">
+        {% if observation.image %}
+            <div class="observation_detail-photo" 
+            style="background-image: url(../../..{{ observation.image.url }});">
+            </div>
+        {% endif %}
+        <div class="observation_detail-info">
+            <h1>Информация о наблюдении:</h1>
+            <p class="observation_list-item-title">Вид: {{ observation.bird.name }}</p>
+            <p class="observation_list-item-title">Дата: {{ observation.date}}</p>
+            <p class="observation_list-item-title">Местоположение: {{observation.region}}</p>
+            <a href="{% url 'birdlib:details' pk=observation.bird.pk %}" class="btn_bold">Перейти в справочник к этому виду</a>
+        </div>
+    </div>
+    <p class="reconciliation">{{observation.reconciliation}}</p>
+</div>
+{% endblock %}

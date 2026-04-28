@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container ">
+    <h1 class="observations-title">СОЗДАНИЕ НАБЛЮДЕНИЯ</h1>
+
+    <form method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <input style="position: absolute; display: none;" type="text" name="bird" id="id_bird" required="">
+        <div class="observations-block">
+            <div>
+                <div class="observations-item">
+                    <label class="observations-lable" for="myButton">Выберите вид птицы:</label>
+                    <div class="observations-input field observations-field" id="myButton">Выбрать из списка</div>
+                </div>
+                <div class="observations-item">
+                    <label class="observations-lable" for="id_date">Дата наблюдения:</label>
+                    <input class="field observations-input" type="date" name="date" required="" id="id_date">
+                </div>
+                <div class="observations-item">
+                    <label class="observations-lable" for="id_region">Географический район:</label>
+                    <input class="field observations-input" type="text" name="region" maxlength="200" required="" id="id_region" placeholder="Например: Московская область"> 
+                </div>
+            </div>
+            <div>
+                <label class="observations-lable-gender" for="id_gender">Пол:</label>
+                <select class="field" name="gender" id="id_gender">
+                    <option value="men">Самец</option>
+                    <option value="woman">Самка</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <label class="observations-lable observations-lable-last" for="id_reconciliation">Примечания:</label>
+            <textarea class="field create_bird-textarea" name="reconciliation" cols="40" rows="10" maxlength="1000" required="" id="id_reconciliation" placeholder="Напишите любую дополнительную информацию: сколько особей, какое поведение и так далее..."></textarea>
+        </div>
+        <label for="id_image" class="bnt_file create_bird-btn">
+				<input type="file" name="image" accept="image/*" id="id_image">
+				<span>Добавить фото</span>
+		</label>
+        <a class="btn_bold cancel" href="{% url 'userprofile:profile' %}">Отменить</a>
+        <button class="btn_bold" type="submit">Сохранить</button>
+    </form>  
+    <div class="observations-birds" id="birds_frame">
+        <h2>Выберите вид птицы:</h2>
+        <div class="birds birds_frame">
+            {% for bird in birds %}
+                <button class="birds-link" value="{{ bird.id }}">
+                    {% if bird.logo_men %}
+                        <div class="birds-img" style="background-image: url(../../..{{ bird.logo_men.url}});"></div>
+                    {% else %}
+                        <div class="birds-img"></div>
+                    {% endif %}
+                    <div class=" birds-block observations-birds-block">
+                        <h2 class="birds-title">{{ bird.name }}</h2>
+                        <p class="birds-description">{{ bird.description|truncatechars:'135' }}</p>
+                    </div>
+                </button>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+  // Находим все кнопки
+    const buttons = document.querySelectorAll('.birds-link');
+    const inputField = document.getElementById('id_bird');
+    const block = document.getElementById('birds_frame');
+    const btn = document.getElementById('myButton');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            inputField.value = this.value;
+            block.classList.toggle('active');
+            btn.textContent = this.querySelector('.birds-title').textContent;
+        });
+    });
+
+    btn.addEventListener('click', () => {
+        block.classList.toggle('active');
+    });
+</script>
+
+{% endblock %}

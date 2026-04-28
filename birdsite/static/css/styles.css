@@ -192,11 +192,17 @@
     grid-gap: 20px;
 }
 
+.birds_frame {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+}
+
 .birds-link {
     display: flex;
     padding: 18px;
     border: 4px solid rgba(181, 214, 239, 1);
     border-radius: 20px;
+    background-color: white;
 }
 
 .birds-link:hover {
@@ -551,4 +557,141 @@
 .discussions_add_button {
     margin-right: 20px;
     margin-left: auto;
+}
+
+
+.observations-title {
+    text-align: center;
+    font-size: 36px;
+}
+.observations-block {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    grid-gap: 60px;
+}
+
+.observations-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.observations-lable,
+.observations-lable-gender {
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.observations-lable-last {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.observations-input {
+    width: 360px;
+}
+
+.observations-field {
+    text-align: center;
+    background-color: #367FB5;
+    color: white;
+}
+
+.observations {
+    position: relative;
+}
+.observations-birds {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 100px;
+    transform: translate(-50%);
+    background-color: white;
+    border: 5px solid #367FB5;
+    padding: 50px;
+    border-radius: 50px;
+    -webkit-box-shadow: 4px 4px 73px 58px rgba(34, 60, 80, 0.17);
+    -moz-box-shadow: 4px 4px 73px 58px rgba(34, 60, 80, 0.17);
+    box-shadow: 4px 4px 73px 58px rgba(34, 60, 80, 0.17);
+}
+.observations-birds.active {
+    display: block;
+}
+
+.observations-birds-block {
+    width: 200px;
+}
+
+.observation_list {
+    margin: 50px;
+    background-color: var(--pale-blue-color);
+    padding: 50px;
+    border-radius: 50px;
+}
+.observation_list-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 35px;
+}
+
+.observation_list-item {
+    padding: 25px;
+    background-color: white;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.observation_list-item-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.observation_list-item .discussion_user {
+    flex-direction: row;
+    align-items: center;
+}
+
+.observation_list-item .discussion_user-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.observation_detail-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.observation_detail-title {
+    margin-right: 20px;
+    margin-bottom: 0;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.observation_detail-block {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.observation_detail-user {
+    min-width: 400px;
+}
+
+.observation_detail-info h1 {
+    font-size: 24px;
+}
+
+.observation_detail-photo {
+    margin-right: 20px;
+    width: 318px;
+    height: 259px;
+    border-radius: 25px;
+    background-size: cover;
+}
+
+.reconciliation {
+    font-size: 24px;
+    /* line-height: 20px; */
 }

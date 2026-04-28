@@ -20,3 +20,9 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
 ]
+#
+# slowar = {
+#     login: 1,
+#     password: 2,
+#
+# }

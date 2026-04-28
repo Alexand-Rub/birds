@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="container">
+    <div class="discussions-header">
+        <form method="get" class="discussions_form">
+            <label for="discussions-search">Поиск:</label>
+            <input
+                    id="discussions-search"
+                    class="discussions_search"
+                    name="search"
+                    placeholder="Поиск..."
+                    {% if search != None %}
+                        value="{{search}}"
+                    {% endif %}
+            >
+
+            <label for="discussions-sort">Фильтр</label>
+            <select name="sort" id="discussions-sort" onchange="this.form.submit();" class="field">
+                {% if sort == "old" %}
+                    <option value="old">сначала старые</option>
+                    <option value="new">сначала новые</option>
+                {% else %}
+                    <option value="new">сначала новые</option>
+                    <option value="old">сначала старые</option>
+                {% endif %}
+            </select>
+        </form>
+        <a class="btn_light" href="{% url 'observations:create'%}">Создать обсуждение</a>
+    </div>
+</div>
+<div class='observation_list'>
+    <div class="observation_list-block">
+        {% for observation in observations %}
+            <a class="observation_list-item" href="{% url 'observations:detail' pk=observation.pk %}">
+                <p class="observation_list-item-title"><b>Вид: {{ observation.bird.name }} </b></p>
+                <p class="observation_list-item-title">Дата: {{ observation.date}}</p>
+                <p class="observation_list-item-title">Местоположение: {{observation.region}}</p>
+                <div class="discussion_user">
+                    {% if observation.user.profile.logo %}
+                        <div class="discussion_user-logo"
+                            style="background-image: url(../../..{{ observation.user.profile.logo.url }});">
+                        </div>
+                    {% endif%}
+                    <p class="discussion_user-name">
+                        {{ observation.user.profile.first_name }} {{ observation.user.profile.last_name }}
+                    </p>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
