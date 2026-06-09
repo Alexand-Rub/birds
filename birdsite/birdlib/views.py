@@ -31,6 +31,7 @@ class ListBirdView(View):
         else:
             birds = Bird.objects.all()
         context = {
+            'group_exists': request.user.groups.filter(name='Moderators').exists(),
             'search': request.GET.get("bird"),
             'birds': birds,
         }
@@ -49,8 +50,9 @@ class FavouritesListBirdView(View):
             )
         else:
             birds = request.user.favourites.all()
-            # birds = Bird.objects.all()
+
         context = {
+            'group_exists': request.user.groups.filter(name='Moderators').exists(),
             'search': request.GET.get("bird"),
             'birds': birds,
         }
@@ -62,7 +64,7 @@ class CreateBirdView(UserPassesTestMixin, CreateView):
     fields = [
         'name', 'lat_name', 'squad',
         'family', 'genus', 'habitat',
-        'description', 'audio', 'logo_men', 'logo_woman'
+        'description', 'audio', 'logo_men', 'logo_woman', 'protection'
     ]
     template_name = 'birdlib/create_bird.html'
     success_url = reverse_lazy("userprofile:login")
@@ -74,11 +76,6 @@ class CreateBirdView(UserPassesTestMixin, CreateView):
         form.instance.user = self.request.user
         form.instance.save()
         return super(CreateBirdView, self).form_valid(form)
-
-# class DetailBirdView(DetailView):
-#     model = Bird
-#     template_name = 'birdlib/detail_bird.html'
-#     context_object_name = 'bird'
 
 class DetailBirdView(View):
     def get(self, request: HttpRequest, pk: int) -> HttpResponse:
@@ -97,15 +94,13 @@ class DetailBirdView(View):
         if not request.user.is_authenticated:
             return redirect(reverse_lazy("userprofile:login"))
         favourites = request.user.favourites.filter(pk=pk).first()
+
+        bird = Bird.objects.get(pk=pk)
+        user = request.user
         if not favourites:
-            bird = Bird.objects.get(pk=pk)
-            user = request.user
             bird.favourites.add(user)
-            print('добавили избранное')
             flag = True
         else:
-            bird = Bird.objects.get(pk=pk)
-            user = request.user
             bird.favourites.remove(user)
             flag = False
 
@@ -123,3 +118,17 @@ class DeleteBirdView(UserPassesTestMixin, DeleteView):
 
     def test_func(self):
         return self.request.user.is_authenticated and self.request.user.groups.filter(name='Moderators').exists()
+
+class UpdateBirdView(UserPassesTestMixin, UpdateView):
+    model = Bird
+    fields = [
+        'name', 'lat_name', 'squad',
+        'family', 'genus', 'habitat',
+        'description', 'audio', 'logo_men', 'logo_woman', 'protection'
+    ]
+    template_name = 'birdlib/update_bird.html'
+    def test_func(self):
+        return self.request.user.is_authenticated and self.request.user.groups.filter(name='Moderators').exists()
+
+    def get_success_url(self):
+        return reverse_lazy("birdlib:details", kwargs={'pk': self.object.pk})

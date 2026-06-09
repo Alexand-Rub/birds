@@ -29,13 +29,16 @@
             <p class="bird-info"><span class="bird-chapter">Место обитания:</span></p>
             <p class="bird-more">{{bird.habitat}}</p>
             <p class="bird-info"><span class="bird-chapter">Голос:</span></p>
-            <audio class="bird-audio" controls src="../../../media/songs/Ase4kA_-_The_night_is_gentle.mp3"></audio>
+            <audio class="bird-audio" controls src="../../..{{ bird.audio.url}}"></audio>
         </div>
     </div>
     <p class="bird-info"><span class="bird-chapter">Описание</span></p>
     <p class="bird-more">{{bird.description}}</p>
     {% if group_exists %}
-        <a class="btn_delete" href="{% url 'birdlib:delete' pk=bird.pk %}">Удалить статью</a>
+    <div style="margin: 30px 0; ">
+        <a class="btn_delete" style="display: inline-block; margin-right: 20px;" href="{% url 'birdlib:delete' pk=bird.pk %}">Удалить</a>
+        <a class="btn" href="{% url 'birdlib:delete' pk=bird.pk %}">Редактировать</a>
+    </div>
     {% endif %}
 
 </div>

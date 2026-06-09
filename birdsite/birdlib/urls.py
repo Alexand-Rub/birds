@@ -7,6 +7,7 @@ from .views import (
     FavouritesListBirdView,
     DetailBirdView,
     DeleteBirdView,
+    UpdateBirdView,
 )
 
 app_name = "birdlib"
@@ -17,4 +18,5 @@ urlpatterns = [
     path('create/', CreateBirdView.as_view(), name='create'),
     path('bird/<int:pk>', DetailBirdView.as_view(), name='details'),
     path('bird/<int:pk>/bird_delete', DeleteBirdView.as_view(), name='delete'),
+    path('bird/<int:pk>/bird_update', UpdateBirdView.as_view(), name='delete'),
 ]

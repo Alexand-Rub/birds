@@ -6,6 +6,9 @@
     <form method="get">
         <input class="birds_search" name="bird" placeholder="Поиск...">
     </form>
+    {% if group_exists %}
+        <a class="btn" style="margin-bottom: 20px;" href="{% url 'birdlib:create' %}">Добавить статью</a>
+    {% endif %}
     {% if search %}
     <h1>Рузельтаты по запросу: {{ search }}</h1>
     {% endif %}
