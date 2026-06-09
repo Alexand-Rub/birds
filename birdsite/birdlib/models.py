@@ -4,7 +4,7 @@ from django.db.models import ForeignKey
 
 
 def bird_file_directory_path(instance: "Bird", filename: str) -> str:
-    return "Bird/{filename}".format(
+    return "bird/{filename}".format(
         pk=instance.pk,
         filename=filename,
     )

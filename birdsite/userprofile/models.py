@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.db import models
 
 def product_preview_directory_path(instance: "Profile", filename: str) -> str:
-    return "products/product_{pk}/preview/{filename}".format(
+    return "user_photo/{pk}-{filename}".format(
         pk=instance.pk,
         filename=filename,
     )
