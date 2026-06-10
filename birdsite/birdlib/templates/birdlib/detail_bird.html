@@ -29,7 +29,9 @@
             <p class="bird-info"><span class="bird-chapter">Место обитания:</span></p>
             <p class="bird-more">{{bird.habitat}}</p>
             <p class="bird-info"><span class="bird-chapter">Голос:</span></p>
+            {% if bird.audio %}
             <audio class="bird-audio" controls src="../../..{{ bird.audio.url}}"></audio>
+            {% endif %}
         </div>
     </div>
     <p class="bird-info"><span class="bird-chapter">Описание</span></p>
