@@ -40,11 +40,11 @@
             <li class="comments-item">
                 <div class="comments-content">
                     <div class="discussion_user">
-                        {% if discussion.user.profile.logo %}
                         <div class="discussion_user-logo"
-                            style="background-image: url(../../..{{ massage.author.profile.logo.url }});">
-                        </div>
-                        {% endif%}
+                             {% if massage.author.profile.logo %}
+                             style="background-image: url(../../..{{ massage.author.profile.logo.url }});"
+                             {% endif %}
+                        ></div>
                         <p class="discussion_user-name">
                             {{ massage.author.profile.first_name }} {{ massage.author.profile.last_name }}
                         </p>

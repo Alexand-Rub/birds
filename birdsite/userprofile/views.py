@@ -57,7 +57,10 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         response = super().form_valid(form)
-        Profile.objects.create(user=self.object)
+        Profile.objects.create(
+            user=self.object,
+            first_name=form.cleaned_data.get("username")
+        )
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password1")
         user = authenticate(
