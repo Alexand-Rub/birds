@@ -13,7 +13,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length=50, blank=True)
     last_name = models.CharField(max_length=50, blank=True)
     email = models.EmailField(max_length=254, blank=True)
-    logo = models.ImageField(null=True, blank=True, upload_to=product_preview_directory_path)
+    logo = models.ImageField(null=True, blank=True, default=None, upload_to=product_preview_directory_path)
 
 
 
